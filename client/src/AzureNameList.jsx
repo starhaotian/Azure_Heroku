@@ -1,24 +1,8 @@
 import React from 'react';
 import AzureSelector from './AzureSelector'
 
-// class AzureNameList extends Component {
-//     constructor(props) {
-//       super(props);
+import getCurrentDate from './getCurrentDate'
 
-//       this.state = {
-//         options :["Pending", "Failed", "Success"],
-//         decoration: {
-//           // textDecorationLine: "line-through"
-//       },
-
-
-//     
-
-// })
-// }
-//   this.generateList = this.generateList.bind(this);
-
-// }
 const AzureNameList = ({ nameList, updateName, updateDate,switchStatus, readable }) => {
     const options = ["Pending", "Failed", "Success"];
 
@@ -45,7 +29,7 @@ const AzureNameList = ({ nameList, updateName, updateDate,switchStatus, readable
         }
         return (<li key={index}>
             <input  defaultValue={element.userName} id={index} type='text' onChange={updateName} readOnly={readable} style={textStyle} className="userName"/>
-            <input  defaultValue={element.userDate} id={index} type='date' onChange={updateDate} readOnly={readable} className="userDate"/>
+            <input  defaultValue={element.userDate} id={index} type='date' onChange={updateDate} readOnly={readable} max = {getCurrentDate()}className="userDate"/>
             <AzureSelector optionNames={options} onChange={switchStatus} index = {index} status = {element.userStatus} isDisabled ={isDisabled}/>
 
         </li>);

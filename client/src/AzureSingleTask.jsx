@@ -13,21 +13,21 @@ import {updateTaskNameToServer, deleteTaskInServer, addNewName, updateAllNameLis
 import getCurrentDate from './getCurrentDate';
 
 
-class AzureSingleTask  extends Component {
+class AzureSingleTask extends Component {
   constructor(props) {
     super(props);
     console.log(props);
     this.state = {
         number: this.props.singleTask.number,
         taskName: this.props.singleTask.taskName,
-        nameList : this.props.singleTask.nameList,
-        taskStatus : this.props.singleTask.taskStatus,
-        isStartedBefore : this.props.isStartedBefore,
+      nameList: this.props.singleTask.nameList,
+      taskStatus: this.props.singleTask.taskStatus,
+      isStartedBefore: this.props.isStartedBefore,
         mode: 'Display',
         isSuccess: this.props.singleTask.isSuccess,
 
-        name:'',
-        date:'',
+      name: '',
+      date: '',
         status: 'Pending',
 
         buttonMode: this.props.buttonMode,
@@ -39,7 +39,7 @@ class AzureSingleTask  extends Component {
     this.displayTask = this.displayTask.bind(this);
     this.changeStatus = this.changeStatus.bind(this);
 
-    this.generateList= this.generateList.bind(this);
+    this.generateList = this.generateList.bind(this);
     this.getName = this.getName.bind(this);
     this.getDate = this.getDate.bind(this);
     this.switchStatus = this.switchStatus.bind(this);
@@ -52,13 +52,13 @@ class AzureSingleTask  extends Component {
   }
 
 
-    getName(name){
+  getName(name) {
       this.setState({
         name
       });
     }
 
-    getDate(date){
+  getDate(date) {
       this.setState({
         date
       });
@@ -97,7 +97,7 @@ class AzureSingleTask  extends Component {
     }
 
 
-    updateFailStatus(optionValue,index){
+  updateFailStatus(optionValue, index) {
        const newNameList = this.state.nameList;
       //  console.log(newNameList[index]);
        newNameList[index].userStatus = 'Failed';
@@ -108,7 +108,7 @@ class AzureSingleTask  extends Component {
         taskNumber: this.state.number
        }
        updateAllNameList(body)
-       .then(singleTask =>{
+      .then(singleTask => {
         this.setState({
           nameList: singleTask.nameList
         })
@@ -116,12 +116,12 @@ class AzureSingleTask  extends Component {
 
     }
 
-    updateSucStatus(optionValue,index){
+  updateSucStatus(optionValue, index) {
       const newNameList = this.state.nameList;
       newNameList[index].userStatus = 'Success';
 
-      for (let i=0; i<newNameList.length;i++ ){
-         if(i !== parseInt(index)){
+    for (let i = 0; i < newNameList.length; i++) {
+      if (i !== parseInt(index)) {
            newNameList[i].userStatus = 'Failed';
          }
       }
@@ -131,7 +131,7 @@ class AzureSingleTask  extends Component {
         taskNumber: this.state.number
        }
        updateAllNameList(body)
-       .then(singleTask =>{
+      .then(singleTask => {
         this.setState({
           nameList: singleTask.nameList,
           isSuccess: true,
@@ -142,20 +142,20 @@ class AzureSingleTask  extends Component {
 
     }
 
-    updateTaskStatus(number, isSuccess){
-      this.props.onUpdateTaskStatus(number,isSuccess);
+  updateTaskStatus(number, isSuccess) {
+    this.props.onUpdateTaskStatus(number, isSuccess);
     }
 
-    switchStatus(optionValue,index){
-       if(optionValue === 'Failed'){
+  switchStatus(optionValue, index) {
+    if (optionValue === 'Failed') {
          console.log(index)
-          this.updateFailStatus(optionValue,index);
-       }else if(optionValue === 'Success'){
-          this.updateSucStatus(optionValue,index);
+      this.updateFailStatus(optionValue, index);
+    } else if (optionValue === 'Success') {
+      this.updateSucStatus(optionValue, index);
        }
      }
 
-     updateName(name,index){
+  updateName(name, index) {
       const newNameList = this.state.nameList;
        console.log(newNameList[index]);
        newNameList[index].userName = name;
@@ -166,19 +166,15 @@ class AzureSingleTask  extends Component {
         taskNumber: this.state.number
        }
        updateAllNameList(body)
-       .then(singleTask =>{
+      .then(singleTask => {
         this.setState({
           nameList: singleTask.nameList
         })
        });
      }
 
-     updateDate(date,index){
-      // const currentDate = getCurrentDate();
-      // if(date.isAfter(currentDate)){
-      //   date = currentDate;
-      // }
-      
+  updateDate(date, index) {
+    console.log(date);
       const newNameList = this.state.nameList;
       //  console.log(newNameList[index]);
        newNameList[index].userDate = date;
@@ -189,7 +185,7 @@ class AzureSingleTask  extends Component {
         taskNumber: this.state.number
        }
        updateAllNameList(body)
-       .then(singleTask =>{
+      .then(singleTask => {
         this.setState({
           nameList: singleTask.nameList
         })
@@ -198,58 +194,58 @@ class AzureSingleTask  extends Component {
      }
 
 
-  updateTaskName(word){
+  updateTaskName(word) {
     updateTaskNameToServer(word, this.state.number)
     .then(taskList => {
       console.log(taskList);
       this.setState({
-        taskName: taskList[this.state.number-1].taskName
+          taskName: taskList[this.state.number - 1].taskName
       });
     });
   }
 
-  deleteTask(){
+  deleteTask() {
     deleteTaskInServer(this.state.number)
-    .then(taskList=>{
+      .then(taskList => {
       console.log(taskList);
       this.props.deleteTask(taskList);
     });
   }
 
-  displayTask(){
-    if(this.state.mode==='Hidden'){
+  displayTask() {
+    if (this.state.mode === 'Hidden') {
      this.setState({
-       mode:'Display'
+        mode: 'Display'
      });
     }
-    else{
+    else {
       this.setState({
-        mode:'Hidden'
+        mode: 'Hidden'
       });
     }
   }
 
-  changeStatus(){
-    if(this.state.taskStatus === 'pending'){
+  changeStatus() {
+    if (this.state.taskStatus === 'pending') {
       this.setState({
         taskStatus: 'started',
         buttonMode: false
       });
-      if(this.state.isStartedBefore === false){
-        this.props.changeTaskStatus(this.state.number,'started',true,false);
+      if (this.state.isStartedBefore === false) {
+        this.props.changeTaskStatus(this.state.number, 'started', true, false);
       }
-      else{
-        this.props.changeTaskStatus(this.state.number,'started',this.state.isStartedBefore,false);
+      else {
+        this.props.changeTaskStatus(this.state.number, 'started', this.state.isStartedBefore, false);
       }
     }
-    else{
+    else {
       this.setState({
         taskStatus: 'pending',
         buttonMode: true,
         nameList: [],
         isSuccess: false
       });
-      this.props.changeTaskStatus(this.state.number,'pending',this.state.isStartedBefore,false);
+      this.props.changeTaskStatus(this.state.number, 'pending', this.state.isStartedBefore, false);
     }
 
   }
@@ -269,26 +265,26 @@ class AzureSingleTask  extends Component {
 
   render() {
     let buttonName = '';
-    if(this.state.buttonMode === true || this.state.isSuccess === true){
+    if (this.state.buttonMode === true || this.state.isSuccess === true) {
       buttonName = 'add-name-disabled';
-    }else{
+    } else {
       buttonName = 'add-name';
     }
 
     console.log(this.state.isSuccess);
-    if(this.state.mode === 'Hidden'){
+    if (this.state.mode === 'Hidden') {
     return (
       <div className='singleTask'>
        <div className='singleTask-manageTool'>
-          <AzureImage isSuccess = {this.state.isSuccess}/>
+            <AzureImage isSuccess={this.state.isSuccess} />
           <AzureStatusSelector onChangeStatus={this.changeStatus}
-                            status={this.state.taskStatus}/>
+              status={this.state.taskStatus} />
           <AzureTaskInputBox word={this.state.taskName}
                          className={'show-taskName'}
                          text={''}
                          updateWord={this.updateTaskName} />
-          <AzureButton className={'deleteTask-button'} onClick={this.deleteTask} text={'Delete'}/>
-          <AzureButton className={'displayTask-button'} onClick={this.displayTask} text={this.state.mode}/>
+            <AzureButton className={'deleteTask-button'} onClick={this.deleteTask} text={'Delete'} />
+            <AzureButton className={'displayTask-button'} onClick={this.displayTask} text={this.state.mode} />
        </div>
        <div className='singleTask-nameList'>
          <AzureNameTool
@@ -297,8 +293,8 @@ class AzureSingleTask  extends Component {
             onGetName={this.getName}
             onGetDate={this.getDate}
             generateList={this.generateList}
-            buttonMode = {this.state.buttonMode}
-            buttonName = {buttonName} 
+              buttonMode={this.state.buttonMode}
+              buttonName={buttonName}
             />
           <AzureNameDisplay
             nameList={this.state.nameList}
@@ -312,18 +308,18 @@ class AzureSingleTask  extends Component {
     );
   }
   else {
-    return(
+      return (
       <div className='singleTask'>
        <div className='singleTask-manageTool'>
-         <AzureImage isSuccess = {this.state.isSuccess}/>
+            <AzureImage isSuccess={this.state.isSuccess} />
           <AzureStatusSelector onChangeStatus={this.changeStatus}
-                            status={this.state.taskStatus}/>
+              status={this.state.taskStatus} />
           <AzureTaskInputBox word={this.state.taskName}
                          className={'show-taskName'}
                          text={''}
                          updateWord={this.updateTaskName} />
-          <AzureButton className={'deleteTask-button'} onClick={this.deleteTask} text={'Delete'}/>
-          <AzureButton className={'displayTask-button'} onClick={this.displayTask} text={this.state.mode}/>
+            <AzureButton className={'deleteTask-button'} onClick={this.deleteTask} text={'Delete'} />
+            <AzureButton className={'displayTask-button'} onClick={this.displayTask} text={this.state.mode} />
        </div>
        </div>
     )

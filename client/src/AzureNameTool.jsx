@@ -26,8 +26,8 @@ const AzureNameTool = ({ name, date, onGetName, onGetDate,generateList,buttonMod
     
     return (
         <div className = 'name-tool'> 
-        <input value={name} className='input-userName' placeholder='User Name' type='text' onChange = {getName}/>
-        <input value={date} className='input-date' type='date' onChange = {getDate}/>
+        <input value={name} className='input-userName' placeholder='User Name' type='text' onChange = {getName} />
+        <input value={date} className='input-date' type='date' onChange = {getDate} max={getCurrentDate()}/>
         <button className={buttonName} onClick={generateList} disabled = {buttonMode}>{'add'}</button>
       </div>
     )
