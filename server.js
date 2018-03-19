@@ -2,12 +2,13 @@
 	const express = require('express');
 	const bodyParser = require('body-parser');
 	const app = express();
-	const PORT = 3100;
+	const PORT = process.env.PORT || 3100;
 	const tasks = require('./tasks');
 	let position = tasks.all().length-1;//current index of last task in data
 	const users = [{userId : 1, userName: 'Young'},{userId : 2, userName:'Zhou'},{userId : 3, userName: 'Lance'}];//fake user Information
 	let turn = 0;
-	app.use( express.static('public') );
+	const path = require('path');
+	app.use(express.static(path.resolve(__dirname, './client/build')));
 	app.use( bodyParser.json({ extended: true, type: '*/*' }) );
 
 
