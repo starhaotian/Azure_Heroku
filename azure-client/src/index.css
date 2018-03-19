@@ -1,0 +1,364 @@
+.Azure {
+    height: 800px;
+    width: 1000px;
+    font: 20px 'trebuchet MS', 'lucida sans';
+    margin-left: auto;
+    margin-right: auto;
+}
+.Azure-header {
+    height: 120px;
+    background-color: black;
+    color: white;
+}
+.Azure-title {
+    height: 70px;
+    font-style: normal;
+    width: 700px;
+    margin-top: 55px;
+    font-size: 60px;
+    margin-left: 0px;
+    display: inline-block;
+}
+.singleTask{
+
+}
+.userLogin {
+    height: 50px;
+    width: 100px;
+    font-size: 28px;
+    display: inline-block;
+    margin-left: 190px;
+    text-align: right;
+}
+
+.content {
+    border-style: solid;
+    height: 600px;
+    /*
+    background-image: url("flower.jpg");
+    background-size: cover;
+    */
+}
+.display-successTask {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    background-image: url('nike.jpeg');
+    background-size: cover;
+    vertical-align: middle;
+    display: inline-block;
+    border: none;
+}
+.display-failedTask {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    background-image: url('');
+    background-size: cover;
+    vertical-align: middle;
+    display: inline-block;
+    border: none;
+}
+.azure-addTask {
+    height: 60px;
+    border-bottom: black 4px solid;
+}
+.addTask-button:hover {
+	font-family: "Gill Sans", sans-serif;
+    background-color: red;
+    color: white;
+}
+.taskName-input:focus {
+    outline: none
+}
+.addTask-button:focus {
+    outline: none
+}
+.taskName-input {
+    width: 400px;
+    height: 54px;
+    font-size: 36px;
+    border: 0px;
+}
+.addTask-button {
+    font-size: 24px;
+    width: 70px;
+    height: 45px;
+    background-color: white;
+    color: black;
+    padding: 0;
+    margin-bottom: 20px;
+    border: black 2px solid;
+    font-family: sans-serif;
+}
+
+.task-list {
+    width: 950px;
+    height: 500px;
+    overflow: scroll;
+    list-style-type: none;
+}
+.taskStatus-selector {
+    outline: none;
+    width: 90px;
+    height: 40px;
+    background-color: white;
+    border: solid 4px black;
+    margin-left: 20px;
+    font-size: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: "Gill Sans", sans-serif;
+}
+.show-taskName {
+    font-size: 28px;
+    text-align: center;
+    padding: 0;
+    width: 250px;
+    display: inline-block;
+    font-family: system-ui;
+    outline: none;
+    border: none #FFFFFF;
+    height: 54px;
+    vertical-align: middle;
+}
+.deleteTask-button {
+    padding: 0px;
+    border: 0px;
+    width: 100px;
+    height: 60px;
+    background-color: black;
+    color: white;
+    font-size: 24px;
+    font-family: "Gill Sans", sans-serif;
+}
+.displayTask-button {
+    width: 100px;
+    height: 60px;
+    background-color: black;
+    color: white;
+    font-size: 24px;
+    border: 0px;
+    margin-left: 5px;
+    padding: 0px;
+    font-family: "Gill Sans", sans-serif;
+}
+.deleteTask-button:hover {
+    background-color: #F5512E;
+    font-family: cursive;
+}
+.deleteTask-button:focus {
+    outline: none;
+}
+.displayTask-button:hover {
+    background-color: #EFE3E0;
+    color: black;
+    display: inline-block;
+    font-family: cursive;
+}
+.displayTask-button:focus {
+    outline: none;
+    display: inline-block;
+}
+.task-list ol {
+    list-style-type: none;
+    padding: 0px;
+}
+.task-list li {
+	border: black 3px solid;
+	border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-left: 140px;
+    padding: 0px;
+    width: 700px;
+}
+
+
+/* xiaoxiao */
+.singleTask-nameList {
+	margin-top: 20px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    height: 330px;
+    width: 600px;
+    border: black dashed 4px;
+    background-color: #F2F4F4;
+
+}
+
+.name-content{
+	text-align: center;
+
+}
+
+.name-tool {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.input-userName{
+    outline: none;
+    text-align: left;
+    margin-left: 5px;
+    margin-right: 10px;
+    height: 20px;
+    width: 100px;
+    font-size: 20px;
+    overflow: hidden;
+    border: none #FFFFFF;
+    border-bottom: black solid 4px;
+    background: transparent;
+}
+
+.input-date {
+    outline: none;
+    text-align: left;
+    margin-left: 5px;
+    margin-right: 10px;
+    height: 20px;
+    width: 170px;
+    font-size: 18px;
+    overflow: hidden;
+    border: none #FFFFFF;
+    border-bottom: black solid 4px;
+    background: transparent;
+}
+
+.add-name{
+    outline: none;
+    font-size: 18px;
+    width: 40px;
+    height: 30px;
+    background-color: white;
+    color: black;
+    padding: 0;
+    margin-bottom: 20px;
+    border: black 2px solid;
+}
+
+.add-name-disabled{
+	outline: none;
+    font-size: 18px;
+    width: 40px;
+    height: 30px;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.add-name:hover {
+    color: white;
+    background-color: red;
+    display: inline-block;
+}
+.add-name:focus {
+    outline: none;
+    display: inline-block;
+}
+
+.ol-list {
+    margin-top: 0px;
+  	padding: 0px;
+    margin-left: 50px;
+    height: 200px;
+    overflow: scroll;
+    width: 500px;
+    list-style-type: none;
+}
+.ol-list li{
+	padding: 0px;
+    margin-top: 20px;
+    margin-left: 40px;
+    height: 30px;
+    width: 400px;
+    border:none;
+}
+
+.edit-bar{
+    text-align: center;
+}
+.edit {
+    outline: none;
+    font-size: 13px;
+    width: 50px;
+    height: 30px;
+    background-color: white;
+    color: black;
+    padding: 0;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    border: black 2px solid;
+}
+.save {
+    outline: none;
+    font-size: 13px;
+    width: 50px;
+    height: 30px;
+    background-color: white;
+    color: black;
+    padding: 0;
+    margin-top: 15px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border: black 2px solid;
+}
+.save:hover {
+    color: white;
+    background-color: red;
+    display: inline-block;
+}
+.save:focus {
+    outline: none;
+    display: inline-block;
+}
+.edit:hover {
+    color: white;
+    background-color: red;
+    display: inline-block;
+}
+.edit:focus {
+    outline: none;
+    display: inline-block;
+}
+
+.userName{
+    margin-left: 10px;
+    border: black 2px solid;
+    width: 100px;
+    height: 16px;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.userDate{
+    margin-left: 20px;
+    border: black 2px solid;
+    width: 150px;
+    height: 20px;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.userName:focus {
+    border: red 2px solid;
+    outline: none;
+}
+
+.userDate:focus {
+    border: red 2px solid;
+    outline: none;
+}
+.user-status:focus {
+    border: red 2px solid;
+    outline: none;
+}
+
+.user-status{
+    margin-left: 20px;
+    border: black 2px solid;
+    width: 80px;
+    height: 25px;
+    font-size: 14px;
+    background-color: black;
+    color: white;
+}
